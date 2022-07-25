@@ -2,4 +2,19 @@ body {
     margin: 0;
     background-color: #eee;
     font-family: Besley, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
+.mainBod {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 489px;
+    height: 984px;
+    background-color: black;
+    border-radius: 90px;
+}
+
