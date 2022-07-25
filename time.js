@@ -4,6 +4,7 @@ function showTIme() {
     let time = new Date();
     let hour = time.getHours();
     let minute = time.getMinutes();
+    minute = minute < 10 ? "0" + minute : minute;
     let currentTime = hour + ':' + minute;
     divTime.innerHTML = currentTime;
 }
