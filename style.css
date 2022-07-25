@@ -21,8 +21,10 @@ body {
 .notification {
     display: flex;
     justify-content: space-between;
+    padding: 1em 3.5em;
 }
 
 .notif-time {
     color: white;
+    
 }
