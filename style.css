@@ -34,10 +34,18 @@ body {
 .notif-camera {
     display: flex;
     align-items: center;
+    gap: 2em;
 }
 
 .speaker {
     width: 3em;
     height: 0.4em;
     background-color: white;
+}
+
+.camera {
+    width: .4em;
+    height: .4em;
+    background-color: #eee;
+    border-radius: 50%;
 }
