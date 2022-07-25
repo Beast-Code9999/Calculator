@@ -11,7 +11,8 @@ body {
 .mainBod {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
     width: 489px;
     height: 984px;
     background-color: black;
@@ -20,11 +21,23 @@ body {
 
 .notification {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 1em 3.5em;
+    gap: 4em;
 }
 
 .notif-time {
     color: white;
-    
+    top: 0;
+}
+
+.notif-camera {
+    display: flex;
+    align-items: center;
+}
+
+.speaker {
+    width: 3em;
+    height: 0.4em;
+    background-color: white;
 }
