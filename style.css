@@ -18,3 +18,11 @@ body {
     border-radius: 90px;
 }
 
+.notification {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notif-time {
+    color: white;
+}
