@@ -53,10 +53,6 @@
     border-radius: 50%;
 }
 
-.notif-battery {
-
-}
-
 .notif-battery img {
     width: 5em;
     height: auto;
@@ -69,13 +65,25 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    overflow: scroll;
 }
 
 .output {
     padding: 3rem;
+    justify-content: flex-end;
     color: #eee;
     background-color: rgb(56, 56, 56);
     font-size: 4rem;
     font-weight: 100;
-    align-self:flex-end;
+    inline-size: 393px;
+    word-break: break-all;
+    /* border-top-left-radius: 100px;
+    border-top-right-radius: 100px; */
+}
+
+.output {
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
