@@ -1,4 +1,4 @@
-body {
+ body {
     margin: 0;
     background-color: #eee;
     font-family: Besley, serif;
@@ -21,26 +21,28 @@ body {
 
 .notification {
     display: flex;
-    justify-content: space-evenly;
-    padding: 1em 3.5em;
+    align-items: center;
+    padding-top: 2.5em;
     gap: 4em;
 }
 
 .notif-time {
     color: white;
-    top: 0;
+    transform: translate(-1.5em);
 }
 
 .notif-camera {
     display: flex;
     align-items: center;
-    gap: 2em;
+    gap: 1em;
+    margin-bottom: ;
 }
 
 .speaker {
-    width: 3em;
+    width: 3.5em;
     height: 0.4em;
     background-color: white;
+    
 }
 
 .camera {
@@ -48,4 +50,14 @@ body {
     height: .4em;
     background-color: #eee;
     border-radius: 50%;
+}
+
+.notif-battery {
+
+}
+
+.notif-battery img {
+    width: 5em;
+    height: auto;
+    transform: translate(1.5em);
 }
