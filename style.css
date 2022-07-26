@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 50px;
 }
 
 .mainBod {
@@ -16,39 +16,40 @@
     width: 489px;
     height: 984px;
     background-color: black;
-    border-radius: 90px;
+    border-radius: 100px;
 }
 
 .notification {
     display: flex;
     align-items: center;
-    padding-top: 2.5em;
+    padding-top: 2.2em;
     gap: 4em;
 }
 
 .notif-time {
     color: white;
-    transform: translate(-1.5em);
 }
 
 .notif-camera {
     display: flex;
     align-items: center;
     gap: 1em;
-    margin-bottom: ;
+    margin-bottom: 2em;
+    margin-left: 1em
 }
 
 .speaker {
     width: 3.5em;
     height: 0.4em;
-    background-color: white;
+    background-color: hsl(0deg 0% 9%);
+    border: .5px solid hsl(0deg 0% 20%);
     
 }
 
 .camera {
-    width: .4em;
-    height: .4em;
-    background-color: #eee;
+    width: .7em;
+    height: .7em;
+    background-color: hsl(207deg 51% 26%);
     border-radius: 50%;
 }
 
@@ -59,5 +60,4 @@
 .notif-battery img {
     width: 5em;
     height: auto;
-    transform: translate(1.5em);
 }
