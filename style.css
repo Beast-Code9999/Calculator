@@ -61,3 +61,21 @@
     width: 5em;
     height: auto;
 }
+
+.output-container {
+    background-color: white;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.output {
+    padding: 3rem;
+    color: #eee;
+    background-color: rgb(56, 56, 56);
+    font-size: 4rem;
+    font-weight: 100;
+    align-self:flex-end;
+}
