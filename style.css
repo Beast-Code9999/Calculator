@@ -59,31 +59,33 @@
 }
 
 .output-container {
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     width: 100%;
     height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    overflow: scroll;
+    overflow: auto;
+    margin-top: 1rem;
 }
 
 .output {
     padding: 3rem;
+    display: flex;
+    text-overflow: clip;
     justify-content: flex-end;
     color: #eee;
     background-color: rgb(56, 56, 56);
     font-size: 4rem;
     font-weight: 100;
     inline-size: 393px;
+    height: 30px;
     word-break: break-all;
-    /* border-top-left-radius: 100px;
-    border-top-right-radius: 100px; */
 }
 
-.output {
+/* .output {
   display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
+} */
