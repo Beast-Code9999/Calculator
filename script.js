@@ -16,7 +16,7 @@ let inputBtns = [
         name: "percent",
         symbol: "%",
         operation: "/100",
-        type: "number",
+        type: "key",
     }, 
     {
         name: "division",

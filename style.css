@@ -102,11 +102,38 @@
 
 .input-container {
     display: grid;
-    padding: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    height: 50%;
+    width: 85%;
+    grid-gap: 0.5rem;
+    padding: 2rem;
 }
 
 .button {
-    width: auto;
-    height: auto;
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
+    border-radius: 50%;
+    font-size: 2.5rem;
+}
+
+.key {
+    background-color: #9f9f9f;
+    color: black;
+}
+
+.operator {
+    background-color: #f69906;
+}
+
+.number {
+    background-color: #313131;
+}
+
+.calculate {
+    background-color: #f69906;
 }
