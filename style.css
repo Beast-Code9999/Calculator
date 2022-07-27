@@ -99,3 +99,14 @@
   white-space: nowrap;
   overflow: hidden;
 } */
+
+.input-container {
+    display: grid;
+    padding: 1rem;
+}
+
+.button {
+    width: auto;
+    height: auto;
+    color: white;
+}

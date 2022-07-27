@@ -118,10 +118,16 @@ let inputBtns = [
 
 const outputContainer = document.querySelector('.output-container');
 const output = document.querySelector('[data-output]');
-const inputContainer = document.querySelector('.input-containery');
-
+const inputContainer = document.querySelector('.input-container');
+console.log(inputContainer)
 window.addEventListener('load', createButtons);
 
 function createButtons() {
-    inputContainer
+    inputBtns.forEach(button => {
+        inputContainer.innerHTML += `<div class="button ${button.type}">
+                                        ${button.symbol}
+                                    </div>`;
+    })
+    
 }
+
