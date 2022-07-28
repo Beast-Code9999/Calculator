@@ -78,12 +78,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid rgb(56, 54, 54);
 }
 
 .camera div {
+    width: .5rem;
+    height: .5rem;
+    background-color: rgba(17, 38, 54, 0.568);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera div div {
     width: .2rem;
     height: .2rem;
-    background-color: rgba(17, 38, 54, 0.568);
+    background-color: rgba(10, 25, 36, 0.568);
     border-radius: 50%;
 }
 
@@ -128,15 +139,15 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    height: 50%;
+    height: 300px;
     width: 85%;
-    grid-gap: 0.5rem;
+    grid-gap: 1rem;
     padding: 2rem;
 }
 
 .button {
-    width: 6rem;
-    height: 6rem;
+    width: 5.5rem;
+    height: 5.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
