@@ -8,6 +8,30 @@
     padding: 50px;
 }
 
+.outer0 {
+    background-color: hsl(204deg 38% 15%);
+    padding: 0.3px;
+    border-radius: 100px;
+}
+
+.outer1 {
+    background-color: hsl(202deg 20% 43%);
+    padding: 1.2px;
+    border-radius: 100px;
+}
+
+.outer2 {
+    background-color: hsl(189deg 24% 68%);
+    padding: 2px;
+    border-radius: 100px;
+}
+
+.outer3 {
+    background-color: hsl(203deg 38% 18%);
+    padding: 4px;
+    border-radius: 100px;
+}
+
 .mainBod {
     display: flex;
     flex-direction: column;
@@ -134,6 +158,15 @@
     background-color: #313131;
 }
 
+#zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: auto;
+    height: auto;
+    border-radius: 50px;
+}
+
 .calculate {
     background-color: #f69906;
 }
+

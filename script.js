@@ -97,7 +97,7 @@ let inputBtns = [
         type: "operator",
     },
     {
-        name: "0",
+        name: "zero",
         symbol: 0,
         formula: 0,
         type: "number",
@@ -119,15 +119,18 @@ let inputBtns = [
 const outputContainer = document.querySelector('.output-container');
 const output = document.querySelector('[data-output]');
 const inputContainer = document.querySelector('.input-container');
-console.log(inputContainer)
+
 window.addEventListener('load', createButtons);
 
 function createButtons() {
     inputBtns.forEach(button => {
-        inputContainer.innerHTML += `<div class="button ${button.type}">
+        inputContainer.innerHTML += `<div id="${button.name}" class="button ${button.type}">
                                         ${button.symbol}
                                     </div>`;
+        const span = document.querySelector('.zero')
     })
     
 }
+
+
 
