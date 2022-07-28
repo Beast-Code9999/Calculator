@@ -44,7 +44,7 @@ let inputBtns = [
     },
     {
         name: "multiply",
-        symbol: "X",
+        symbol: "×",
         formula: "*",
         type: "operator",
     },
@@ -69,7 +69,7 @@ let inputBtns = [
     {
         name: "subtract",
         symbol: "-",
-        formula: "-",
+        formula: "−",
         type: "operator",
     },
     {
