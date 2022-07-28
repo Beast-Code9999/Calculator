@@ -10,7 +10,7 @@
 
 .outer0 {
     background-color: hsl(204deg 38% 15%);
-    padding: 0.3px;
+    padding: 1px;
     border-radius: 100px;
 }
 
@@ -28,7 +28,7 @@
 
 .outer3 {
     background-color: hsl(203deg 38% 18%);
-    padding: 4px;
+    padding: 5px;
     border-radius: 100px;
 }
 
@@ -65,7 +65,7 @@
 .speaker {
     width: 3.5em;
     height: 0.4em;
-    background-color: hsl(0deg 0% 9%);
+    background-color: rgb(32, 32, 32);
     border: .5px solid hsl(0deg 0% 20%);
     
 }
@@ -120,7 +120,8 @@
     text-overflow: clip;
     justify-content: flex-end;
     color: #eee;
-    background-color: rgb(138, 138, 138);
+    /* background-color: rgb(138, 138, 138); */
+
     font-size: 4rem;
     font-weight: 100;
     inline-size: 393px;
@@ -139,7 +140,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    height: 300px;
+    height: 520px;
     width: 85%;
     grid-gap: 1rem;
     padding: 2rem;
@@ -181,3 +182,16 @@
     background-color: #f69906;
 }
 
+div.bottom {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.bottom div {
+    width: 10rem;
+    height: 0.3rem;
+    background-color: hsl(120deg 6% 97%);
+}
