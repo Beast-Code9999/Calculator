@@ -127,7 +127,6 @@ function createButtons() {
         inputContainer.innerHTML += `<div id="${button.name}" class="button ${button.type}">
                                         ${button.symbol}
                                     </div>`;
-        const span = document.querySelector('.zero')
     })
     
 }
