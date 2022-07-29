@@ -204,17 +204,15 @@
 .output {
     box-sizing: border-box;
     padding: 0.3rem 2.5rem;
-    display: flex;
-    text-overflow: clip;
-    justify-content: flex-end;
-    align-items:flex-end;
-    color: #eee;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* background-color: rgb(138, 138, 138); */
-    font-size: 5rem;
-    /* inline-size: 393px; */
     height: 100%;
     width: 100%;
+    font-size: 6rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #eee;
+    display: flex;
+    justify-content: flex-end;
+    align-items:flex-end;
+    text-overflow: clip;
     word-break: break-all;
 }
 
