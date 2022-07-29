@@ -24,7 +24,7 @@
     justify-content: center;
 }
 
-.off {
+.silent {
     width: .5rem;
     height: 2.8rem;
     background-color: hsl(203deg 29% 26%);
@@ -36,7 +36,7 @@
     align-items: center;
 }
 
-.off div {
+.silent div {
     width: .2rem;
     height: 2rem;
     background: hsl(202deg 20% 55%);
@@ -75,6 +75,24 @@
 .volume2 div {
     width: .2rem;
     height: 3rem;
+    background: hsl(202deg 20% 55%);
+}
+
+.offBtn {
+    width: 0.5rem;
+    height: 6rem;
+    background-color: hsl(203deg 29% 26%);
+    transform: translate(31.5rem, -11rem);
+    position: absolute;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.offBtn div{
+    width: .1rem;
+    height: 5rem;
     background: hsl(202deg 20% 55%);
 }
 
