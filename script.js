@@ -156,12 +156,18 @@ function clear() {
 
 }
 
-function positiveOrNegative() {
-
+function positiveOrNegative(current) {
+    if(Math.sign(current) === 1) [
+        current = -current;
+    ]
+    else if (Math.sign(current) === -1) {
+        current = -current;
+    }
+    return current
 }
 
-function percent() {
-
+function percent(current) {
+    return current / 100;
 }
 
 function operate(operator, initial, current) {
