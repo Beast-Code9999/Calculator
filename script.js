@@ -144,7 +144,7 @@ function multiply(initial, current) {
     return initial * current;
 }
 
-function substract(initial, current) {
+function subtract(initial, current) {
     return initial - current;
 }
 
@@ -164,4 +164,21 @@ function percent() {
 
 }
 
+function operate(operator, initial, current) {
+    initial = +initial;
+    current = +current;
+    if(operator == "/") {
+        return divide(initial, current);
+    }
+    else if(operator == "*") {
+        return multiply(initial, current);
+    }
+    else if(operator == "-") {
+        return subtract(initial, current)
+    }
+    else if(operator == "+") {
+        return add(initial, current);
+    }
+}
 
+console.log(operate('+', 3, 3))
