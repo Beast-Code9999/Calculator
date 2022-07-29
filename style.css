@@ -191,34 +191,32 @@
 .output-container {
     background-color: rgb(0, 0, 0);
     width: 100%;
-    height: 25%;
+    height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     /* overflow: auto; */
     margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .output {
-    padding: 3rem;
+    box-sizing: border-box;
+    padding: 0.3rem 2.5rem;
     display: flex;
     text-overflow: clip;
     justify-content: flex-end;
+    align-items:flex-end;
     color: #eee;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     /* background-color: rgb(138, 138, 138); */
     font-size: 5rem;
-    inline-size: 393px;
-    height: 30px;
+    /* inline-size: 393px; */
+    height: 100%;
+    width: 100%;
     word-break: break-all;
 }
-
-/* .output {
-  display: inline-block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-} */
 
 .input-container {
     display: grid;
@@ -227,7 +225,7 @@
     height: 520px;
     width: 85%;
     grid-gap: 1rem;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .button {
