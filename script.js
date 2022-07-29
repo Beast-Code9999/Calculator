@@ -157,9 +157,9 @@ function clear() {
 }
 
 function positiveOrNegative(current) {
-    if(Math.sign(current) === 1) [
-        current = -current;
-    ]
+    if(Math.sign(current) === 1) {
+        current = -current
+    }
     else if (Math.sign(current) === -1) {
         current = -current;
     }
