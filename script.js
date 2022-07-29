@@ -135,3 +135,33 @@ function createButtons() {
 inputContainer.addEventListener('click', (event) => {
     console.log(event.target)
 })
+
+function divide(initial, current) {
+    return initial / current;
+}
+
+function multiply(initial, current) {
+    return initial * current;
+}
+
+function substract(initial, current) {
+    return initial - current;
+}
+
+function add(initial, current) {
+    return initial + current;
+}
+
+function clear() {
+
+}
+
+function positiveOrNegative() {
+
+}
+
+function percent() {
+
+}
+
+
