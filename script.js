@@ -135,17 +135,13 @@ inputContainer.addEventListener('click', getInput);
 
 function getInput(event) {
     const type = event.target.className.slice(7);
-
-    console.log(type)
-    let inputArray = [];
     if(type === 'number') {
+        // console.log(event.target)
+        // console.log(event.target.textContent)
         
-        inputArray[-1] += `${event.target.outerText}`
-        console.log(inputArray);
-        
-        // output.textContent = inputArray;
     }
 }
+
 
 function divide(initial, current) {
     return initial / current;
@@ -197,5 +193,3 @@ function operate(operator, initial, current) {
         return add(initial, current);
     }
 }
-
-console.log(operate('+', 3, 3))
