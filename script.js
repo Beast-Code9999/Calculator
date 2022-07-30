@@ -135,13 +135,15 @@ inputContainer.addEventListener('click', getInput);
 
 function getInput(event) {
     const type = event.target.className.slice(7);
-    let inputArray = [];
 
     console.log(type)
+    let inputArray = [];
     if(type === 'number') {
-        inputArray.push('5')
-        console.log(inputArray[0]);
-        output.textContent = inputArray;
+        
+        inputArray[-1] += `${event.target.outerText}`
+        console.log(inputArray);
+        
+        // output.textContent = inputArray;
     }
 }
 
