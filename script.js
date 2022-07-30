@@ -131,9 +131,19 @@ function createButtons() {
     
 }
 
-inputContainer.addEventListener('click', (event) => {
-    console.log(event.target)
-})
+inputContainer.addEventListener('click', getInput);
+
+function getInput(event) {
+    const type = event.target.className.slice(7);
+    let inputArray = [];
+
+    console.log(type)
+    if(type === 'number') {
+        inputArray.push('5')
+        console.log(inputArray[0]);
+        output.textContent = inputArray;
+    }
+}
 
 function divide(initial, current) {
     return initial / current;
@@ -157,7 +167,7 @@ function clear() {
 
 function positiveOrNegative(current) {
     if(Math.sign(current) === 1) {
-        current = -current
+        current = -current;
     }
     else if (Math.sign(current) === -1) {
         current = -current;
@@ -179,7 +189,7 @@ function operate(operator, initial, current) {
         return multiply(initial, current);
     }
     else if(operator == "-") {
-        return subtract(initial, current)
+        return subtract(initial, current);
     }
     else if(operator == "+") {
         return add(initial, current);
