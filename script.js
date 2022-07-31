@@ -143,12 +143,10 @@ let data = {
 // get input numbers and where all calculations are contained
 function getInput(event) {
     const type = event.target.className.split(' ')[1];
-    console.log(type2)
+    console.log(type)
     if(type === 'number') {
-        data.current.push(event.target.innerText);
-        // console.log(data.current.join(''));
+        data.current.push(event.target.innerText); 
         output.textContent = data.current.join('');
-        
     }
     switch(data.current.length) {
         case 8:
@@ -165,6 +163,12 @@ function getInput(event) {
             break;
     }
     console.log(data.current)
+    if(type === 'operator') {
+        data.initial = data.current;
+        data.current = []
+        output.textContent = 0;
+    }
+
 }
 
 
