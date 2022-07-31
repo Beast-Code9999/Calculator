@@ -149,15 +149,27 @@ function getInput(event) {
     }
     adjustFont(data.current);
 
-    if(type === 'operator') {
-        data.initial = data.current;
-        data.current = []
-        output.textContent = 0;
+    if(type === 'operator') {   
+        if(data.initial.length === 0) {
+            data.initial = data.current;
+            data.current = [];
+            output.textContent = 0;
+        }
+        else if(data.initial.length !== 0 && data.current.length !== 0) {
+            let initial = data.initial.join('');
+            let current = data.current.join('');
+            let result = operate('*', initial, current);
+
+        }
         
     }
-    console.log('data current: ', data.current)
-    console.log('data initial: ', data.initial)
+    
+    console.log('data current: ', data.current, data.current.length)
+    console.log('data initial: ', data.initial, data.initial.length)
 }
+
+// const ran = []
+// console.log(ran)
 
 function adjustFont(data) {
     switch(data.length) {
