@@ -131,14 +131,20 @@ function createButtons() {
     
 }
 
-// inputContainer.addEventListener('click', getInput);
+inputContainer.addEventListener('click', calculate);
 
-// crate a data for initial
+// crate a array to store the data for both previous and current data
 let data = {
     initial : [],
     current : [],
 }
 
+function calculate(e) {
+    const button = e.target;
+    console.log(button)
+    const numberBtn = e.target.className;
+    const operatorBtn = 3;
+}
 
 // get input numbers and where all calculations are contained
 // function getInput(event) {
@@ -185,6 +191,7 @@ function clear(type, target) {
     }
 }
 
+adjustFont(output)
 
 function adjustFont(data) {
     switch(data.length) {
