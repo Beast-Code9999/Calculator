@@ -159,7 +159,9 @@ function getInput(event) {
             let initial = data.initial.join('');
             let current = data.current.join('');
             let result = operate('*', initial, current);
-
+            data.initial = [`${result}`]
+            data.current = [];
+            output.textContent = result;
         }
         
     }
