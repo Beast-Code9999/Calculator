@@ -140,14 +140,30 @@ let data = {
 }
 
 
-
+// get input numbers and where all calculations are contained
 function getInput(event) {
     const type = event.target.className.slice(7);
     if(type === 'number') {
         data.current.push(event.target.innerText);
         // console.log(data.current.join(''));
         output.textContent = data.current.join('');
+        
     }
+    switch(data.current.length) {
+        case 8:
+            output.style.fontSize = '5rem';
+            break;
+        case 9:
+            output.style.fontSize = '4.5rem';
+            break;
+        case 10:
+            output.style.fontSize = '4.25rem';
+            break;
+        case 11:
+            output.style.fontSize = '4rem';
+            break;
+    }
+    console.log(data.current)
 }
 
 
