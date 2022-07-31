@@ -131,7 +131,7 @@ function createButtons() {
     
 }
 
-inputContainer.addEventListener('click', getInput);
+// inputContainer.addEventListener('click', getInput);
 
 // crate a data for initial
 let data = {
@@ -141,38 +141,50 @@ let data = {
 
 
 // get input numbers and where all calculations are contained
-function getInput(event) {
-    const type = event.target.className.split(' ')[1];
-    if(type === 'number') {
-        data.current.push(event.target.innerText); 
-        output.textContent = data.current.join('');
-    }
-    adjustFont(data.current);
+// function getInput(event) {
+//     const type = event.target.className.split(' ')[1];
+//     const operatorSymbol = event.target.dataset.operation;
+//     let initial = data.initial.join('');
+//     let current = data.current.join('');
 
-    if(type === 'operator') { 
-        const operatorSymbol = event.target.dataset.operation;
-        if(data.initial.length === 0) {
-            data.initial = data.current;
-            data.current = [];
-            output.textContent = 0;
-        }
-        else if (data.initial.length !== 0 && data.current.length !== 0) {
-            let initial = data.initial.join('');
-            let current = data.current.join('');
-            let result = operate(`${operatorSymbol}`, initial, current);
-            data.initial = [`${result}`]
-            data.current = [];
-            output.textContent = result;
-        }
-        
-    }// require debugging
+//     if(type === 'number') {
+//         data.current.push(event.target.innerText); 
+//         output.textContent = data.current.join('');
+//     }
     
-    console.log('data current: ', data.current, data.current.length)
-    console.log('data initial: ', data.initial, data.initial.length)
+//     adjustFont(data.current);
+    
+//     if(type === 'operator') { 
+//         if(data.initial.length === 0) {
+//             data.initial = data.current;
+//             data.current = [0];
+//             output.textContent = 0;
+//         }
+//         else if (data.initial.length !== 0 && data.current.length !== 0) {
+//             console.log(operatorSymbol)
+//             let result = operate(`${operatorSymbol}`, initial, current);
+//             data.initial = [`${result}`]
+//             data.current = [];
+//             output.textContent = result;
+//         }
+        
+//     }// require debugging
+    
+//     clear(type, event.target.id)
+//     console.log('data current: ', data.current, data.current.length)
+//     console.log('data initial: ', data.initial, data.initial.length)
+// }
+
+
+
+function clear(type, target) {
+    if(type === 'key' && target === 'clear') {
+        data.current = [];
+        data.initial = [];
+        output.textContent = 0;
+    }
 }
 
-// const ran = []
-// console.log(ran)
 
 function adjustFont(data) {
     switch(data.length) {
@@ -207,9 +219,6 @@ function add(initial, current) {
     return initial + current;
 }
 
-function clear() {
-
-}
 
 function positiveOrNegative(current) {
     if(Math.sign(current) === 1) {
