@@ -142,7 +142,8 @@ let data = {
 
 // get input numbers and where all calculations are contained
 function getInput(event) {
-    const type = event.target.className.slice(7);
+    const type = event.target.className.split(' ')[1];
+    console.log(type2)
     if(type === 'number') {
         data.current.push(event.target.innerText);
         // console.log(data.current.join(''));
