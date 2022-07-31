@@ -27,91 +27,91 @@ let inputBtns = [
     {
         name: "7",
         symbol: 7,
-        formula: 7,
+        operation: 7,
         type: "number",
     },
     {
         name: "8",
         symbol: 8,
-        formula: 8,
+        operation: 8,
         type: "number",
     },
     {
         name: "9",
         symbol: 9,
-        formula: 9,
+        operation: 9,
         type: "number",
     },
     {
         name: "multiply",
         symbol: "×",
-        formula: "*",
+        operation: "*",
         type: "operator",
     },
     {
         name: "4",
         symbol: 4,
-        formula: 4,
+        operation: 4,
         type: "number",
     },
     {
         name: "5",
         symbol: 5,
-        formula: 5,
+        operation: 5,
         type: "number",
     },
     {
         name: "6",
         symbol: 6,
-        formula: 6,
+        operation: 6,
         type: "number",
     },
     {
         name: "subtract",
         symbol: "-",
-        formula: "−",
+        operation: "−",
         type: "operator",
     },
     {
         name: "1",
         symbol: 1,
-        formula: 1,
+        operation: 1,
         type: "number",
     },
     {
         name: "2",
         symbol: 2,
-        formula: 2,
+        operation: 2,
         type: "number",
     },
     {
         name: "3",
         symbol: 3,
-        formula: 3,
+        operation: 3,
         type: "number",
     },
     {
         name: "add",
         symbol: "+",
-        formula: "+",
+        operation: "+",
         type: "operator",
     },
     {
         name: "zero",
         symbol: 0,
-        formula: 0,
+        operation: 0,
         type: "number",
     },
     {
         name: ".",
         symbol: ".",
-        formula: ".",
+        operation: ".",
         type: "number",
     },
     {
         name: "equal",
         symbol: "=",
-        formula: "=",
+        operation: "=",
         type: "calculate",
     },
 ]
@@ -124,7 +124,7 @@ window.addEventListener('load', createButtons);
 
 function createButtons() {
     inputBtns.forEach(button => {
-        inputContainer.innerHTML += `<div id="${button.name}" class="button ${button.type}">
+        inputContainer.innerHTML += `<div data-operation="${button.operation}" id="${button.name}" class="button ${button.type}">
                                         ${button.symbol}
                                     </div>`;
     })
@@ -149,22 +149,23 @@ function getInput(event) {
     }
     adjustFont(data.current);
 
-    if(type === 'operator') {   
+    if(type === 'operator') { 
+        const operatorSymbol = event.target.dataset.operation;
         if(data.initial.length === 0) {
             data.initial = data.current;
             data.current = [];
             output.textContent = 0;
         }
-        else if(data.initial.length !== 0 && data.current.length !== 0) {
+        else if (data.initial.length !== 0 && data.current.length !== 0) {
             let initial = data.initial.join('');
             let current = data.current.join('');
-            let result = operate('*', initial, current);
+            let result = operate(`${operatorSymbol}`, initial, current);
             data.initial = [`${result}`]
             data.current = [];
             output.textContent = result;
         }
         
-    }
+    }// require debugging
     
     console.log('data current: ', data.current, data.current.length)
     console.log('data initial: ', data.initial, data.initial.length)
