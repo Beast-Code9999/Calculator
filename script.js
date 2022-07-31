@@ -143,12 +143,24 @@ let data = {
 // get input numbers and where all calculations are contained
 function getInput(event) {
     const type = event.target.className.split(' ')[1];
-    console.log(type)
     if(type === 'number') {
         data.current.push(event.target.innerText); 
         output.textContent = data.current.join('');
     }
-    switch(data.current.length) {
+    adjustFont(data.current);
+
+    if(type === 'operator') {
+        data.initial = data.current;
+        data.current = []
+        output.textContent = 0;
+        
+    }
+    console.log('data current: ', data.current)
+    console.log('data initial: ', data.initial)
+}
+
+function adjustFont(data) {
+    switch(data.length) {
         case 8:
             output.style.fontSize = '5rem';
             break;
@@ -162,15 +174,7 @@ function getInput(event) {
             output.style.fontSize = '4rem';
             break;
     }
-    console.log(data.current)
-    if(type === 'operator') {
-        data.initial = data.current;
-        data.current = []
-        output.textContent = 0;
-    }
-
 }
-
 
 function divide(initial, current) {
     return initial / current;
