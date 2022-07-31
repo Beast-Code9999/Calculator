@@ -133,12 +133,20 @@ function createButtons() {
 
 inputContainer.addEventListener('click', getInput);
 
+// crate a data for initial
+let data = {
+    initial : [],
+    current : [],
+}
+
+
+
 function getInput(event) {
     const type = event.target.className.slice(7);
     if(type === 'number') {
-        // console.log(event.target)
-        // console.log(event.target.textContent)
-        
+        data.current.push(event.target.innerText);
+        // console.log(data.current.join(''));
+        output.textContent = data.current.join('');
     }
 }
 
