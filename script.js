@@ -69,7 +69,7 @@ let inputBtns = [
     {
         name: "subtract",
         symbol: "-",
-        operation: "−",
+        operation: "-",
         type: "operator",
     },
     {
@@ -119,79 +119,48 @@ let inputBtns = [
 const outputContainer = document.querySelector('.output-container');
 const output = document.querySelector('[data-output]');
 const inputContainer = document.querySelector('.input-container');
+let currentOperation = null
 
 window.addEventListener('load', createButtons);
 
 function createButtons() {
     inputBtns.forEach(button => {
-        inputContainer.innerHTML += `<div data-operation="${button.operation}" id="${button.name}" class="button ${button.type}">
+        inputContainer.innerHTML += `<div data-type="${button.type}" data-operation="${button.operation}" id="${button.name}" class="button ${button.type}">
                                         ${button.symbol}
                                     </div>`;
     })
     
 }
 
-inputContainer.addEventListener('click', calculate);
+// let result = ['1', '2', '3', '4'].join('').toString();
 
-// crate a array to store the data for both previous and current data
-let data = {
-    initial : [],
-    current : [],
+let result = ''
+console.log(result)
+
+let displayNum = ''
+let initialNum = ''
+
+inputContainer.addEventListener('click', calculator);
+
+function calculator(e) {
+    const button = e.target
+    const type = e.target.dataset.type;
+    
+
+    clear(button.id)
 }
 
-function calculate(e) {
-    const button = e.target;
-    console.log(button)
-    const numberBtn = e.target.className;
-    const operatorBtn = 3;
+function appendNum(numberType, num) {
+    numberType += num;
 }
 
-// get input numbers and where all calculations are contained
-// function getInput(event) {
-//     const type = event.target.className.split(' ')[1];
-//     const operatorSymbol = event.target.dataset.operation;
-//     let initial = data.initial.join('');
-//     let current = data.current.join('');
-
-//     if(type === 'number') {
-//         data.current.push(event.target.innerText); 
-//         output.textContent = data.current.join('');
-//     }
-    
-//     adjustFont(data.current);
-    
-//     if(type === 'operator') { 
-//         if(data.initial.length === 0) {
-//             data.initial = data.current;
-//             data.current = [0];
-//             output.textContent = 0;
-//         }
-//         else if (data.initial.length !== 0 && data.current.length !== 0) {
-//             console.log(operatorSymbol)
-//             let result = operate(`${operatorSymbol}`, initial, current);
-//             data.initial = [`${result}`]
-//             data.current = [];
-//             output.textContent = result;
-//         }
-        
-//     }// require debugging
-    
-//     clear(type, event.target.id)
-//     console.log('data current: ', data.current, data.current.length)
-//     console.log('data initial: ', data.initial, data.initial.length)
-// }
-
-
-
-function clear(type, target) {
-    if(type === 'key' && target === 'clear') {
-        data.current = [];
-        data.initial = [];
+function clear(button) {
+    if(button === 'clear') {
+        currentOperation = 'x'
         output.textContent = 0;
+ 
     }
 }
-
-adjustFont(output)
 
 function adjustFont(data) {
     switch(data.length) {
