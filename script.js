@@ -134,34 +134,53 @@ function createButtons() {
 
 // let result = ['1', '2', '3', '4'].join('').toString();
 
-let result = ''
-console.log(result)
-
-let displayNum = ''
-let initialNum = ''
+const result = {
+    current : ["0"],
+    initial : [],
+}
 
 inputContainer.addEventListener('click', calculator);
 
 function calculator(e) {
     const button = e.target
-    const type = e.target.dataset.type;
-    
+    const type = button.dataset.type;
+    const operationSymbol = button.dataset.operation
+    if(type === 'number') {
+        if(result.current[0] === "0") {
+            result.current = [];
+        }
+        result.current.push(operationSymbol);
+    }
+    if(type === 'operator') {
+        result.initial = result.current;
+        if(result.initial.length !== 0 && result.current[0] !== "0") {
+            currentOperation = operationSymbol;
+        }
+    }
 
+    output.textContent = result.current.join('')
+    
+    adjustFont(output.textContent)
     clear(button.id)
+    console.log(currentOperation)
+    console.log(result.current)
 }
 
 
 
 function clear(button) {
     if(button === 'clear') {
-        currentOperation = 'x'
+        currentOperation = null
         output.textContent = 0;
- 
+        result.current = ["0"];
+        result.initial = [];
+        
     }
 }
 
-function adjustFont(data) {
-    switch(data.length) {
+
+function adjustFont(content) {
+    switch(content.length) {
         case 8:
             output.style.fontSize = '5rem';
             break;
