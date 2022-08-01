@@ -150,9 +150,7 @@ function calculator(e) {
     clear(button.id)
 }
 
-function appendNum(numberType, num) {
-    numberType += num;
-}
+
 
 function clear(button) {
     if(button === 'clear') {
