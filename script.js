@@ -119,7 +119,7 @@ let inputBtns = [
 const outputContainer = document.querySelector('.output-container');
 const output = document.querySelector('[data-output]');
 const inputContainer = document.querySelector('.input-container');
-let currentOperation = null
+
 
 window.addEventListener('load', createButtons);
 
@@ -134,10 +134,10 @@ function createButtons() {
 
 // let result = ['1', '2', '3', '4'].join('').toString();
 
-const result = {
-    current : ["0"],
-    initial : [],
-}
+let firstOperand = ''
+let secondOperand = ''
+let currentOperation = null;
+
 
 inputContainer.addEventListener('click', calculator);
 
@@ -145,24 +145,10 @@ function calculator(e) {
     const button = e.target
     const type = button.dataset.type;
     const operationSymbol = button.dataset.operation
-    if(type === 'number') {
-        if(result.current[0] === "0") {
-            result.current = [];
-        }
-        result.current.push(operationSymbol);
-    }
-    if(type === 'operator') {
-        result.initial = result.current;
-        if(result.initial.length !== 0 && result.current[0] !== "0") {
-            currentOperation = operationSymbol;
-        }
-    }
-
-    output.textContent = result.current.join('')
     
     adjustFont(output.textContent)
     clear(button.id)
-    console.log(currentOperation)
+
     console.log(result.current)
 }
 
