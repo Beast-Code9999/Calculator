@@ -136,6 +136,7 @@ function createButtons() {
 
 let firstOperand = ''
 let secondOperand = ''
+let result = 1;
 let currentOperation = null;
 
 
@@ -147,8 +148,10 @@ function calculator(e) {
     const operationSymbol = button.dataset.operation
     if(currentOperation === null) {
         if(type === 'number') {
-            firstOperand += button.id
-            output.textContent = firstOperand
+            if(firstOperand !== result) {
+                firstOperand += button.id
+                output.textContent = firstOperand
+            }
         }
         if(type === 'operator') {
             currentOperation = operationSymbol;
@@ -158,10 +161,14 @@ function calculator(e) {
         if(type === 'number') {
             secondOperand += button.id
             output.textContent = secondOperand
+            
         }
-        if(type === 'operator') {
-            let result = operate(`${currentOperation}`, firstOperand, secondOperand)
+        if(type === 'operator' && currentOperation !== 0) {
+            result = operate(`${currentOperation}`, firstOperand, secondOperand)
             console.log(result)
+            firstOperand = result;
+            secondOperand = ''
+            currentOperation = null;
 
 
         }
