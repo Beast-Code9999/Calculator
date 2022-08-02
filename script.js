@@ -145,11 +145,34 @@ function calculator(e) {
     const button = e.target
     const type = button.dataset.type;
     const operationSymbol = button.dataset.operation
-    
+    if(currentOperation === null) {
+        if(type === 'number') {
+            firstOperand += button.id
+            output.textContent = firstOperand
+        }
+        if(type === 'operator') {
+            currentOperation = operationSymbol;
+        }
+    }
+    if(currentOperation !== null) {
+        if(type === 'number') {
+            secondOperand += button.id
+            output.textContent = secondOperand
+        }
+        if(type === 'operator') {
+            let result = operate(`${currentOperation}`, firstOperand, secondOperand)
+            console.log(result)
+
+
+        }
+    }
+
+    console.log(firstOperand)
+    console.log(secondOperand)
+    console.log(currentOperation)
     adjustFont(output.textContent)
     clear(button.id)
 
-    console.log(result.current)
 }
 
 
