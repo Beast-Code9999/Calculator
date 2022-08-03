@@ -149,6 +149,7 @@ function calculator(e) {
     if(currentOperation === null) {
         if(type === 'number') {
             firstOperand += button.id
+            output.textContent = firstOperand
         }
         if(type === 'operator') {
             currentOperation = operationSymbol;
@@ -158,15 +159,16 @@ function calculator(e) {
         if(type === 'number') {
             secondOperand += button.id
             output.textContent = secondOperand
-
+            
         }
-        if(type === 'operator' && currentOperation !== 0) {
-            result = operate(`${currentOperation}`, firstOperand, secondOperand)
-            console.log(result)
-            firstOperand = result;
+        if(type === 'operator') {
+            if(type === 'operator' && secondOperand !== '') {
+                result = operate(`${currentOperation}`, firstOperand, secondOperand)
+                console.log(result)
+                firstOperand = result;
+            }
             secondOperand = ''
-            currentOperation = null;
-
+            currentOperation = operationSymbol;
 
         }
     }
