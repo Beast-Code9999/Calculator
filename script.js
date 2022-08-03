@@ -211,8 +211,7 @@ function calculateWhenCurrentOperationNotNull(type, operationSymbol) {
             else {
                 secondOperand += operationSymbol;
                 output.textContent = secondOperand;
-            }
-            
+            }    
         }
 
         if(type === 'plusMinus') {
