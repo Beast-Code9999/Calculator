@@ -121,7 +121,7 @@ const output = document.querySelector('[data-output]');
 const inputContainer = document.querySelector('.input-container');
 
 
-window.addEventListener('load', createButtons);
+window.addEventListener('load', createButtons)
 
 function createButtons() {
     inputBtns.forEach(button => {
@@ -139,16 +139,16 @@ let secondOperand = '';
 let currentOperation = null;
 
 
-inputContainer.addEventListener('click', calculator);
+inputContainer.addEventListener('click', calculator)
 
 function calculator(e) {
     const button = e.target;
     const type = button.dataset.type;
     const operationSymbol = button.dataset.operation;
-    adjustFont(output.textContent)
     clear(button.id)
     calcualteWhenCurrentOperationNull(type, operationSymbol)
     calculateWhenCurrentOperationNotNull(type, operationSymbol)
+    adjustFont(output.textContent)
 
     console.log(firstOperand)
     console.log(secondOperand)
@@ -159,9 +159,15 @@ function calculator(e) {
 function calcualteWhenCurrentOperationNull(type, operationSymbol) {
     if(currentOperation === null) {
         if(type === 'number') {
-            firstOperand += operationSymbol;
-            output.textContent = firstOperand;
+            if(firstOperand === '' && operationSymbol === "0") {
+                firstOperand = '';
+            }
+            else {
+                firstOperand += operationSymbol;
+                output.textContent = firstOperand;
+            }
         }
+
         if(type === "decimal") {
             if(!firstOperand.includes('.')) {
                 if(firstOperand === '') {
@@ -169,17 +175,19 @@ function calcualteWhenCurrentOperationNull(type, operationSymbol) {
                     output.textContent = firstOperand;
                 }
                 else {
-                firstOperand += operationSymbol;
-                output.textContent = firstOperand;
+                    firstOperand += operationSymbol;
+                    output.textContent = firstOperand;
                 }
             }
         }
+
         if(type === 'operator') {
             currentOperation = operationSymbol;
         }
+
         if(type === 'plusMinus') {
             if(firstOperand !== '' && firstOperand !== 0) {
-                firstOperand = positiveOrNegative(firstOperand)
+                firstOperand = positiveOrNegative(firstOperand);
                 output.textContent = firstOperand;
             }
 
@@ -187,7 +195,7 @@ function calcualteWhenCurrentOperationNull(type, operationSymbol) {
 
         if(type === "percent") {
             if(firstOperand !== '' || firstOperand !== 0) {
-                firstOperand = percent(firstOperand)
+                firstOperand = percent(firstOperand);
                 output.textContent = firstOperand;
             }
         }
@@ -197,24 +205,28 @@ function calcualteWhenCurrentOperationNull(type, operationSymbol) {
 function calculateWhenCurrentOperationNotNull(type, operationSymbol) {
     if(currentOperation !== null) {
         if(type === 'number') {
-            secondOperand += operationSymbol
-            output.textContent = secondOperand
+            if(secondOperand === '' && operationSymbol === '0') {
+                secondOperand = '';
+            }
+            else {
+                secondOperand += operationSymbol;
+                output.textContent = secondOperand;
+            }
             
         }
 
         if(type === 'plusMinus') {
             if(secondOperand !== '') {
                 if(secondOperand !== '' && secondOperand !== 0) {
-                    secondOperand = positiveOrNegative(secondOperand)
+                    secondOperand = positiveOrNegative(secondOperand);
                     output.textContent = secondOperand;
                 }
             }
-
         }
 
         if(type === "percent") {
             if(secondOperand !== '' || secondOperand !== 0) {
-                secondOperand = percent(secondOperand)
+                secondOperand = percent(secondOperand);
                 output.textContent = secondOperand;
             }
         }
@@ -231,14 +243,15 @@ function calculateWhenCurrentOperationNotNull(type, operationSymbol) {
                 }
             }
         }
+
         if(type === 'operator' || type === 'calculate') {
             if(type === 'operator' && secondOperand !== '' || type === "calculate" && secondOperand !== '') {
-                result = operate(`${currentOperation}`, firstOperand, secondOperand)
+                result = operate(`${currentOperation}`, firstOperand, secondOperand);
                 firstOperand = result;
                 output.textContent = result; 
             }
-            secondOperand = ''
-            if(type !== 'calculate') currentOperation = operationSymbol
+            secondOperand = '';
+            if(type !== 'calculate') currentOperation = operationSymbol;
 
         }
 
@@ -247,14 +260,14 @@ function calculateWhenCurrentOperationNotNull(type, operationSymbol) {
 
 function clear(button) {
     if(button === 'clear') {
-        currentOperation = null
-        firstOperand = ''
-        secondOperand = ''
-        output.textContent = 0
+        currentOperation = null;
+        firstOperand = '';
+        secondOperand = '';
+        output.textContent = 0;
+        output.style.fontSize = '6rem';
         
     }
 }
-
 
 function adjustFont(content) {
     switch(content.length) {
