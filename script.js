@@ -136,7 +136,6 @@ function createButtons() {
 
 let firstOperand = ''
 let secondOperand = ''
-
 let currentOperation = null;
 
 
@@ -146,9 +145,11 @@ function calculator(e) {
     const button = e.target
     const type = button.dataset.type;
     const operationSymbol = button.dataset.operation
+    adjustFont(output.textContent)
+    clear(button.id)
     if(currentOperation === null) {
         if(type === 'number') {
-            firstOperand += button.id
+            firstOperand += button.dataset.operation
             output.textContent = firstOperand
         }
         if(type === 'operator') {
@@ -157,15 +158,15 @@ function calculator(e) {
     }
     if(currentOperation !== null) {
         if(type === 'number') {
-            secondOperand += button.id
+            secondOperand += button.dataset.operation
             output.textContent = secondOperand
             
         }
         if(type === 'operator') {
             if(type === 'operator' && secondOperand !== '') {
                 result = operate(`${currentOperation}`, firstOperand, secondOperand)
-                console.log(result)
                 firstOperand = result;
+                output.textContent = result;
             }
             secondOperand = ''
             currentOperation = operationSymbol;
@@ -176,8 +177,6 @@ function calculator(e) {
     console.log(firstOperand)
     console.log(secondOperand)
     console.log(currentOperation)
-    adjustFont(output.textContent)
-    clear(button.id)
 
 }
 
@@ -186,9 +185,9 @@ function calculator(e) {
 function clear(button) {
     if(button === 'clear') {
         currentOperation = null
-        output.textContent = 0;
-        result.current = ["0"];
-        result.initial = [];
+        firstOperand = ''
+        secondOperand = ''
+        output.textContent = 0
         
     }
 }
