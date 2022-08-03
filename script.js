@@ -3,20 +3,20 @@ let inputBtns = [
         name: "clear",
         symbol: "AC",
         operation: false,
-        type: "key",
+        type: "clear",
 
     }, 
     {
         name: "positive or nergative",
         symbol: "±",
         operation: "plusMinus",
-        type: "key"
+        type: "plusMinus"
     },
     {
         name: "percent",
         symbol: "%",
         operation: "/100",
-        type: "key",
+        type: "percent",
     }, 
     {
         name: "division",
@@ -134,23 +134,32 @@ function createButtons() {
 
 // let result = ['1', '2', '3', '4'].join('').toString();
 
-let firstOperand = ''
-let secondOperand = ''
+let firstOperand = '';
+let secondOperand = '';
 let currentOperation = null;
 
 
 inputContainer.addEventListener('click', calculator);
 
 function calculator(e) {
-    const button = e.target
+    const button = e.target;
     const type = button.dataset.type;
-    const operationSymbol = button.dataset.operation
+    const operationSymbol = button.dataset.operation;
     adjustFont(output.textContent)
     clear(button.id)
+    calcualteWhenCurrentOperationNull(type, operationSymbol)
+    calculateWhenCurrentOperationNotNull(type, operationSymbol)
 
+    console.log(firstOperand)
+    console.log(secondOperand)
+    console.log(currentOperation)
+
+}
+
+function calcualteWhenCurrentOperationNull(type, operationSymbol) {
     if(currentOperation === null) {
         if(type === 'number') {
-            firstOperand += button.dataset.operation
+            firstOperand += operationSymbol;
             output.textContent = firstOperand;
         }
         if(type === "decimal") {
@@ -160,7 +169,7 @@ function calculator(e) {
                     output.textContent = firstOperand;
                 }
                 else {
-                firstOperand += operationSymbol
+                firstOperand += operationSymbol;
                 output.textContent = firstOperand;
                 }
             }
@@ -168,13 +177,48 @@ function calculator(e) {
         if(type === 'operator') {
             currentOperation = operationSymbol;
         }
+        if(type === 'plusMinus') {
+            if(firstOperand !== '' && firstOperand !== 0) {
+                firstOperand = positiveOrNegative(firstOperand)
+                output.textContent = firstOperand;
+            }
+
+        }
+
+        if(type === "percent") {
+            if(firstOperand !== '' || firstOperand !== 0) {
+                firstOperand = percent(firstOperand)
+                output.textContent = firstOperand;
+            }
+        }
     }
+}
+
+function calculateWhenCurrentOperationNotNull(type, operationSymbol) {
     if(currentOperation !== null) {
         if(type === 'number') {
-            secondOperand += button.dataset.operation
+            secondOperand += operationSymbol
             output.textContent = secondOperand
             
         }
+
+        if(type === 'plusMinus') {
+            if(secondOperand !== '') {
+                if(secondOperand !== '' && secondOperand !== 0) {
+                    secondOperand = positiveOrNegative(secondOperand)
+                    output.textContent = secondOperand;
+                }
+            }
+
+        }
+
+        if(type === "percent") {
+            if(secondOperand !== '' || secondOperand !== 0) {
+                secondOperand = percent(secondOperand)
+                output.textContent = secondOperand;
+            }
+        }
+        
         if(type === "decimal") {
             if(!secondOperand.includes('.')) {
                 if(secondOperand === '') {
@@ -191,7 +235,7 @@ function calculator(e) {
             if(type === 'operator' && secondOperand !== '' || type === "calculate" && secondOperand !== '') {
                 result = operate(`${currentOperation}`, firstOperand, secondOperand)
                 firstOperand = result;
-                output.textContent = result;
+                output.textContent = result; 
             }
             secondOperand = ''
             if(type !== 'calculate') currentOperation = operationSymbol
@@ -199,14 +243,7 @@ function calculator(e) {
         }
 
     }
-
-    console.log(firstOperand)
-    console.log(secondOperand)
-    console.log(currentOperation)
-
 }
-
-
 
 function clear(button) {
     if(button === 'clear') {

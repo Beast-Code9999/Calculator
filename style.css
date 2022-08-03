@@ -244,12 +244,14 @@
     background-color: rgba(255, 255, 255, 0.432);
 }
 
-.key {
+.plusMinus, .clear, .percent {
     background-color: #9f9f9f;
     color: black;
 }
 
-.key:hover {
+
+
+.plusMinus:hover, .clear:hover, .percent:hover {
     background-color: rgba(255, 255, 255, 0.884);
 }
 
