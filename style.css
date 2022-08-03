@@ -261,6 +261,10 @@
     background-color: rgba(255, 255, 255, 0.822);
 }
 
+.decimal {
+    background-color: #313131;
+}
+
 .number {
     background-color: #313131;
 }

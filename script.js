@@ -106,7 +106,7 @@ let inputBtns = [
         name: ".",
         symbol: ".",
         operation: ".",
-        type: "number",
+        type: "decimal",
     },
     {
         name: "equal",
@@ -149,10 +149,21 @@ function calculator(e) {
     clear(button.id)
 
     if(currentOperation === null) {
-        
         if(type === 'number') {
             firstOperand += button.dataset.operation
-            output.textContent = firstOperand
+            output.textContent = firstOperand;
+        }
+        if(type === "decimal") {
+            if(!firstOperand.includes('.')) {
+                if(firstOperand === '') {
+                    firstOperand = "0.";
+                    output.textContent = firstOperand;
+                }
+                else {
+                firstOperand += operationSymbol
+                output.textContent = firstOperand;
+                }
+            }
         }
         if(type === 'operator') {
             currentOperation = operationSymbol;
@@ -164,8 +175,20 @@ function calculator(e) {
             output.textContent = secondOperand
             
         }
-        if(type === 'operator') {
-            if(type === 'operator' && secondOperand !== '') {
+        if(type === "decimal") {
+            if(!secondOperand.includes('.')) {
+                if(secondOperand === '') {
+                    secondOperand = "0.";
+                    output.textContent = secondOperand;
+                }
+                else {
+                    secondOperand += operationSymbol;
+                    output.textContent = secondOperand;
+                }
+            }
+        }
+        if(type === 'operator' || type === 'calculate') {
+            if(type === 'operator' && secondOperand !== '' || type === "calculate" && secondOperand !== '') {
                 result = operate(`${currentOperation}`, firstOperand, secondOperand)
                 firstOperand = result;
                 output.textContent = result;
@@ -174,6 +197,7 @@ function calculator(e) {
             currentOperation = operationSymbol;
 
         }
+
     }
 
     console.log(firstOperand)
