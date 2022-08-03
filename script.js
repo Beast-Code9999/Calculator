@@ -194,7 +194,7 @@ function calculator(e) {
                 output.textContent = result;
             }
             secondOperand = ''
-            currentOperation = operationSymbol;
+            if(type !== 'calculate') currentOperation = operationSymbol
 
         }
 
