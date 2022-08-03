@@ -9,7 +9,7 @@ let inputBtns = [
     {
         name: "positive or nergative",
         symbol: "±",
-        operation: false,
+        operation: "plusMinus",
         type: "key"
     },
     {
@@ -147,7 +147,9 @@ function calculator(e) {
     const operationSymbol = button.dataset.operation
     adjustFont(output.textContent)
     clear(button.id)
+
     if(currentOperation === null) {
+        
         if(type === 'number') {
             firstOperand += button.dataset.operation
             output.textContent = firstOperand
