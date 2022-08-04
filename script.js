@@ -157,7 +157,6 @@ function calculator(e) {
 
 }
 
-
 function calcualteWhenCurrentOperationNull(type, operationSymbol) {
     if(currentOperation === null) {
 
