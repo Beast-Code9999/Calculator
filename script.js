@@ -148,7 +148,7 @@ function calculator(e) {
     clear(button.id)
     calcualteWhenCurrentOperationNull(type, operationSymbol)
     calculateWhenCurrentOperationNotNull(type, operationSymbol)
-    adjustFont(output.textContent)
+    adjustResult(output.textContent)
 
     console.log(firstOperand)
     console.log(secondOperand)
@@ -273,7 +273,7 @@ function clear(button) {
     }
 }
 
-function adjustFont(content) {
+function adjustResult(content) {
     switch(content.length) {
         case 1:
         case 2:
