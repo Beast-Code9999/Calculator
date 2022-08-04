@@ -152,8 +152,9 @@
 .speaker {
     width: 3.5em;
     height: 0.4em;
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(21, 21, 21);
     border: .5px solid hsl(0deg 0% 20%);
+    border-radius: 1rem;
     
 }
 
