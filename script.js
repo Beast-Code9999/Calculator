@@ -161,7 +161,6 @@ function calcualteWhenCurrentOperationNull(type, operationSymbol) {
     if(currentOperation === null) {
 
         if(type === 'number') {
-            allowKeyboardFunctionality(event , firstOperand)
             if(firstOperand === '' && operationSymbol === "0") {
                 firstOperand = '';
             }
