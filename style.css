@@ -3,11 +3,13 @@
     background-color: #eee;
     font-family: Besley, serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding-top: 4rem;
     transform: scale(70%);
     height: 100vh;
+    gap: .5rem;
 }
 
 .outer0 {
@@ -302,3 +304,25 @@ div.bottom div {
     transform: translate( 0, 0.5rem);
 }
 
+footer {
+    padding: 36px;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  footer a {
+    text-decoration: none;
+    color: black;
+  }
+
+  footer img {
+    width: 25px;
+    height: auto;
+    transition: transform .7s ease-in-out;
+    margin-left: 5px;
+  }
+
+  footer img:hover {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(360deg) scale(1.5);
+  }
