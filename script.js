@@ -257,6 +257,11 @@ function calculateWhenCurrentOperationNotNull(type, operationSymbol) {
     }
 }
 
+function roundUp(number) {
+    return Math.round(number * 1000) / 1000
+}
+
+
 function clear(button) {
     if(button === 'clear') {
         currentOperation = null;
@@ -270,6 +275,15 @@ function clear(button) {
 
 function adjustFont(content) {
     switch(content.length) {
+        case 1:
+        case 2:
+        case 3: 
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            output.style.fontSize = "6rem"
+            break;
         case 8:
             output.style.fontSize = '5rem';
             break;
@@ -282,6 +296,34 @@ function adjustFont(content) {
         case 11:
             output.style.fontSize = '4rem';
             break;
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+        case 21:
+        case 22:
+        case 23:
+        case 24:
+        case 25:
+        case 26:
+        case 27:
+        case 28:
+        case 29:
+        case 30:
+        case 31:
+        case 32:
+        case 33:
+            output.style.fontSize = '4rem';
+            break;       
+        default:
+            output.textContent = roundUp(content)
+            break;
+
     }
 }
 
