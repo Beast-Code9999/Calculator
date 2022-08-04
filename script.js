@@ -1,4 +1,4 @@
-let inputBtns = [
+let inputBtns = [ // an array of dictionaries for differentiating each buttons and categorising them
     {
         name: "clear",
         symbol: "AC",
@@ -123,6 +123,7 @@ const inputContainer = document.querySelector('.input-container');
 
 window.addEventListener('load', createButtons)
 
+// create buttons within inputContainer when window loads 
 function createButtons() {
     inputBtns.forEach(button => {
         inputContainer.innerHTML += `<div data-type="${button.type}" data-operation="${button.operation}" id="${button.name}" class="button ${button.type}">
@@ -138,9 +139,10 @@ let firstOperand = '';
 let secondOperand = '';
 let currentOperation = null;
 
-
+// to listen for all the divs within the inputContainer
 inputContainer.addEventListener('click', calculator)
 
+// the calculator function where all the functions are connected to
 function calculator(e) {
     const button = e.target;
     const type = button.dataset.type;
@@ -149,10 +151,9 @@ function calculator(e) {
     calcualteWhenCurrentOperationNull(type, operationSymbol)
     calculateWhenCurrentOperationNotNull(type, operationSymbol)
     adjustResult(output.textContent)
-
-    console.log(firstOperand)
-    console.log(secondOperand)
-    console.log(currentOperation)
+    // console.log(firstOperand)
+    // console.log(secondOperand)
+    // console.log(currentOperation)
 
 }
 
@@ -261,7 +262,6 @@ function roundUp(number) {
     return Math.round(number * 1000) / 1000
 }
 
-
 function clear(button) {
     if(button === 'clear') {
         currentOperation = null;
@@ -282,7 +282,7 @@ function adjustResult(content) {
         case 5:
         case 6:
         case 7:
-            output.style.fontSize = "6rem"
+            output.style.fontSize = "6rem";
             break;
         case 8:
             output.style.fontSize = '5rem';
@@ -321,7 +321,7 @@ function adjustResult(content) {
             output.style.fontSize = '4rem';
             break;       
         default:
-            output.textContent = roundUp(content)
+            output.textContent = roundUp(content);
             break;
 
     }
@@ -343,7 +343,6 @@ function add(initial, current) {
     return initial + current;
 }
 
-
 function positiveOrNegative(current) {
     if(Math.sign(current) === 1) {
         current = -current;
@@ -351,7 +350,7 @@ function positiveOrNegative(current) {
     else if (Math.sign(current) === -1) {
         current = -current;
     }
-    return current
+    return current;
 }
 
 function percent(current) {
